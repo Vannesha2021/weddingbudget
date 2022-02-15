@@ -20,7 +20,21 @@ def get_month_data():
     print("Please state the month in terms of a number")
     print("Example: If it is February, you should state 2\n")
 
-    month_str = input("Enter the month here: ")
-    print(f"The month which is provided is month number {month_str} of the year")
+    month = input("Enter the month here: ")
+
+    validate_data(month)
+
+def validate_data(values):
+    """
+    Raises an error if the month selected is not a valid number.
+    """
+
+    try:
+        if int(values) >12:
+            raise ValueError(
+                f"You may only choose from month 1 to 12"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
 
 get_month_data()
