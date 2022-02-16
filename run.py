@@ -14,6 +14,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('planning_doc')
 
 def get_month_data():
+
     """
     Get month from the user.
     Run a while loop to collect the valid month from the user via the terminal, 
@@ -22,33 +23,61 @@ def get_month_data():
     """
     while True:
         print("Welcome to Wedding Budget Planner.\n")
-        print("Here is the your wedding planning budget at the moment.")
+        print("Please state the month in terms of a number")
+        print("Example: If it is February, you should state 2\n")
 
         month = input("Enter the month here: ")
         if validate_data(month):
-           print("Month has been noted, thank you.\n")
-           break
+            print("Month has been noted, thank you.\n")
+            show_alldata_month1(month)
+            show_alldata_month2(month)
 
+            break
+
+    
 def validate_data(values):
+
     """
-    Raises an error if the month selected is not a valid number or not an integer.
+    Raises an error if the month 
+    selected is not a valid number or not an integer.
     """
     try:
-        if int(values) >12:
-            raise ValueError(
-                f"You may only choose from month 1 to 12"
-            )
+        if int(values) > 12:
+
+            raise ValueError
+            (f"You may only choose from month 1 to 12")
+
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
         return False
 
     return True
 
-def show_expenses_month1(month):
-    if month(input) == "1":
-        print("Retrieving data")
-        expenses_data_m1 = SHEET.worksheet("expenses").cell(col=6 ,row=2)
-        print(expenses_data_m1)
+def show_alldata_month1(month):
+
+    """
+    Projects expenses,savings and balance for
+    January
+    """
+
+    if month == "1":
+        print("Retrieving data...\n")
+        alldata_m1=SHEET.worksheet("alldata").get('A1:B4')
+        print(alldata_m1)
+        
+    return month
+
+def show_alldata_month2(month):
+
+    """
+    Projects expenses,savings and balance for
+    February
+    """
+
+    if month == "2":
+        print("Retrieving data...\n")
+        alldata_m2=SHEET.worksheet("alldata").get('A6:B9')
+        print(alldata_m2)
         
     return month
 
@@ -57,6 +86,7 @@ def main():
     """
     Run all program functions
     """
-    data = get_month_data()
-    month = show_expenses_month1()
+    get_month_data()
+    
 main()
+
