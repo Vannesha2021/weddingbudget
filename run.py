@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
 
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -12,6 +13,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('planning_doc')
+
 
 def get_month_data():
 
@@ -53,19 +55,29 @@ def validate_data(values):
 
     return True
 
+
 def show_alldata_month1(month):
 
     """
     Projects expenses,savings and balance for
     January
     """
+    print("Retrieving data...\n")
 
     if month == "1":
-        print("Retrieving data...\n")
-        alldata_m1=SHEET.worksheet("alldata").get('A1:B4')
-        print(alldata_m1)
+        alldata_m1_1 = SHEET.worksheet("alldata").get('A1')[0][0]
+        alldata_m1_2 = SHEET.worksheet("alldata").get('B2')[0][0]
+        print(("The month you have chosen :"),alldata_m1_1)
+
+        alldata_m1_3 = SHEET.worksheet("alldata").get('B3')[0][0]
+        print(("Your expenses for this month will be:"),alldata_m1_2)
+
+        jan = int(alldata_m1_3) - int(alldata_m1_2)
+        print(("Your savings for this month should be:"),jan)
         
     return month
+
+
 
 def show_alldata_month2(month):
 
@@ -76,7 +88,7 @@ def show_alldata_month2(month):
 
     if month == "2":
         print("Retrieving data...\n")
-        alldata_m2=SHEET.worksheet("alldata").get('A6:B9')
+        alldata_m2 = SHEET.worksheet("alldata").get('A6:B9')
         print(alldata_m2)
         
     return month
