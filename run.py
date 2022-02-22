@@ -1,7 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
 
-
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -27,7 +26,7 @@ def get_month_data():
         print("Please state the month in terms of a number")
         print("Example: If it is February, you should state 2\n")
 
-        month = input("Enter the month here: ")
+        month = input("Enter the month here:\n")
         if validate_data(month):
             print("Month has been noted, thank you.\n")
             show_alldata_month1(month)
