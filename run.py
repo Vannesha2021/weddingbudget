@@ -50,8 +50,9 @@ def validate_data(values):
     Raises an error if the month
     selected is not a valid number or not an integer.
     """
+
     try:
-        if int(values) > 12:
+        if int(values) <= 0:
 
             raise ValueError
             f'{"You may only choose from month 1 to 12"}'
@@ -59,17 +60,8 @@ def validate_data(values):
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
         return False
-
-    return True
-
-
-def validate_data2(values):
-
-    """
-    Raises an error if the month selected is less than 1.
-    """
     try:
-        if int(values) < 1:
+        if int(values) > 12:
 
             raise ValueError
             f'{"You may only choose from month 1 to 12"}'
@@ -184,8 +176,8 @@ def show_alldata_month4(month):
         alldata_m1_4 = SHEET.worksheet("alldata").get('B3')[0][0]
         alldata_m1_5 = SHEET.worksheet("alldata").get('B7')[0][0]
         alldata_m1_6 = SHEET.worksheet("alldata").get('B11')[0][0]
-        apr_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6))
+        apr_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6))
         print(("Your total savings including past months is:"), apr_ts)
 
     return month
@@ -216,8 +208,8 @@ def show_alldata_month5(month):
         alldata_m1_5 = SHEET.worksheet("alldata").get('B7')[0][0]
         alldata_m1_6 = SHEET.worksheet("alldata").get('B11')[0][0]
         alldata_m1_7 = SHEET.worksheet("alldata").get('B15')[0][0]
-        may_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7))
+        may_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7))
         print(("Your total savings including past months is:"), may_ts)
 
     return month
@@ -249,9 +241,9 @@ def show_alldata_month6(month):
         alldata_m1_6 = SHEET.worksheet("alldata").get('B11')[0][0]
         alldata_m1_7 = SHEET.worksheet("alldata").get('B15')[0][0]
         alldata_m1_8 = SHEET.worksheet("alldata").get('B19')[0][0]
-        jun_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7)
-                  + int(alldata_m1_8))
+        jun_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) +
+                  int(alldata_m1_8))
         print(("Your total savings including past months is:"), jun_ts)
 
     return month
@@ -284,9 +276,9 @@ def show_alldata_month7(month):
         alldata_m1_7 = SHEET.worksheet("alldata").get('B15')[0][0]
         alldata_m1_8 = SHEET.worksheet("alldata").get('B19')[0][0]
         alldata_m1_9 = SHEET.worksheet("alldata").get('B23')[0][0]
-        jul_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8)
-                  + int(alldata_m1_9))
+        jul_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8) +
+                  int(alldata_m1_9))
         print(("Your total savings including past months is:"), jul_ts)
 
     return month
@@ -320,9 +312,9 @@ def show_alldata_month8(month):
         alldata_m1_8 = SHEET.worksheet("alldata").get('B19')[0][0]
         alldata_m1_9 = SHEET.worksheet("alldata").get('B23')[0][0]
         alldata_m1_10 = SHEET.worksheet("alldata").get('B27')[0][0]
-        aug_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8)
-                  + int(alldata_m1_9) + int(alldata_m1_10))
+        aug_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8) +
+                  int(alldata_m1_9) + int(alldata_m1_10))
         print(("Your total savings including past months is:"), aug_ts)
 
     return month
@@ -357,10 +349,10 @@ def show_alldata_month9(month):
         alldata_m1_9 = SHEET.worksheet("alldata").get('B23')[0][0]
         alldata_m1_10 = SHEET.worksheet("alldata").get('B27')[0][0]
         alldata_m1_11 = SHEET.worksheet("alldata").get('B27')[0][0]
-        sep_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8)
-                  + int(alldata_m1_9) + int(alldata_m1_10)
-                  + int(alldata_m1_11))
+        sep_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8) +
+                  int(alldata_m1_9) + int(alldata_m1_10) +
+                  int(alldata_m1_11))
         print(("Your total savings including past months is:"), sep_ts)
 
     return month
@@ -396,11 +388,11 @@ def show_alldata_month10(month):
         alldata_m1_10 = SHEET.worksheet("alldata").get('B27')[0][0]
         alldata_m1_11 = SHEET.worksheet("alldata").get('B27')[0][0]
         alldata_m1_12 = SHEET.worksheet("alldata").get('B35')[0][0]
-        oct_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7)
-                  + int(alldata_m1_8) + int(alldata_m1_9)
-                  + int(alldata_m1_10) + int(alldata_m1_11)
-                  + int(alldata_m1_12))
+        oct_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) +
+                  int(alldata_m1_8) + int(alldata_m1_9) +
+                  int(alldata_m1_10) + int(alldata_m1_11) +
+                  int(alldata_m1_12))
         print(("Your total savings including past months is:"), oct_ts)
 
     return month
@@ -437,10 +429,10 @@ def show_alldata_month11(month):
         alldata_m1_11 = SHEET.worksheet("alldata").get('B27')[0][0]
         alldata_m1_12 = SHEET.worksheet("alldata").get('B35')[0][0]
         alldata_m1_13 = SHEET.worksheet("alldata").get('B39')[0][0]
-        nov_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8)
-                  + int(alldata_m1_9) + int(alldata_m1_10) + int(alldata_m1_11)
-                  + int(alldata_m1_12) + int(alldata_m1_13))
+        nov_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) + int(alldata_m1_8) +
+                  int(alldata_m1_9) + int(alldata_m1_10) + int(alldata_m1_11) +
+                  int(alldata_m1_12) + int(alldata_m1_13))
         print(("Your total savings including past months is:"), nov_ts)
 
     return month
@@ -480,12 +472,12 @@ def show_alldata_month12(month):
         alldata_m1_12 = SHEET.worksheet("alldata").get('B35')[0][0]
         alldata_m1_13 = SHEET.worksheet("alldata").get('B39')[0][0]
         alldata_m1_14 = SHEET.worksheet("alldata").get('B43')[0][0]
-        dec_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5)
-                  + int(alldata_m1_6) + int(alldata_m1_7)
-                  + int(alldata_m1_8) + int(alldata_m1_9)
-                  + int(alldata_m1_10) + int(alldata_m1_11)
-                  + int(alldata_m1_12) + int(alldata_m1_13)
-                  + int(alldata_m1_14))
+        dec_ts = (int(alldata_m1_3) + int(alldata_m1_4) + int(alldata_m1_5) +
+                  int(alldata_m1_6) + int(alldata_m1_7) +
+                  int(alldata_m1_8) + int(alldata_m1_9) +
+                  int(alldata_m1_10) + int(alldata_m1_11) +
+                  int(alldata_m1_12) + int(alldata_m1_13) +
+                  int(alldata_m1_14))
         print(("Congratulations! Your total savings for the year is:"), dec_ts)
 
     return month
